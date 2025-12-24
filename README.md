@@ -17,6 +17,21 @@ A basic Laravel CRUD REST API for managing City resources using in-memory storag
 - Composer
 - Laravel 12.x
 
+## Publishing to GitHub
+
+The repository is already initialized with Git. To publish it to GitHub:
+
+1. Create a new repository on GitHub (do not initialize with README, .gitignore, or license)
+
+2. Add the remote and push:
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git branch -M main
+git push -u origin main
+```
+
+Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your actual GitHub username and repository name.
+
 ## Installation
 
 1. Clone the repository:
@@ -40,16 +55,24 @@ php artisan key:generate
 php artisan serve
 ```
 
-The API will be available at `http://localhost:8000`
+## Base URL
+
+**Base URL:** `http://localhost:8000/api` (default)
+
+The base URL is configured in the following places:
+
+1. **`.env` file** - Set `APP_URL=http://localhost:8001` (or your desired port)
+2. **`config/app.php`** (line 55) - Reads `APP_URL` from environment
+3. **`config/api.php`** - API-specific configuration that combines `APP_URL` + `/api`
+
+**To change the port:**
+- Start server with custom port: `php artisan serve --port=8001`
+- Update `.env` file: `APP_URL=http://localhost:8001`
+- Base URL will be: `http://localhost:8001/api`
+
+All API endpoints are prefixed with `/api`.
 
 ## API Endpoints
-
-All endpoints are prefixed with `/api`
-
-### Base URL
-```
-http://localhost:8000/api
-```
 
 ### 1. Get All Cities
 **GET** `/api/cities`

@@ -14,20 +14,16 @@ class CityController extends Controller
 
     public function __construct()
     {
-        // Initialize with some sample data if empty
         if (empty(self::$cities)) {
             self::$cities = [
-                1 => new City(1, 'New York', 'USA', 8336817, 'The most populous city in the United States'),
-                2 => new City(2, 'London', 'United Kingdom', 8982000, 'Capital city of England and the United Kingdom'),
-                3 => new City(3, 'Tokyo', 'Japan', 13929286, 'Capital city of Japan'),
+                1 => new City(1, 'Addis Ababa', 'Ethiopia', 8336817, 'The most populous city in the United States'),
+                2 => new City(2, 'Bahir Dar', 'Ethiopia', 8982000, 'The second most populous city in Ethiopia'),
+                3 => new City(3, 'Gondar', 'Ethiopia', 13929286, 'The third most populous city in Ethiopia'),
             ];
             self::$nextId = 4;
         }
     }
-
-    /**
-     * Display a listing of all cities.
-     */
+ 
     public function index(): JsonResponse
     {
         $citiesArray = array_map(fn($city) => $city->toArray(), self::$cities);
@@ -37,9 +33,6 @@ class CityController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created city.
-     */
     public function store(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
@@ -75,9 +68,6 @@ class CityController extends Controller
         ], 201);
     }
 
-    /**
-     * Display the specified city.
-     */
     public function show(int $id): JsonResponse
     {
         if (!isset(self::$cities[$id])) {
@@ -93,9 +83,6 @@ class CityController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified city.
-     */
     public function update(Request $request, int $id): JsonResponse
     {
         if (!isset(self::$cities[$id])) {
@@ -142,9 +129,6 @@ class CityController extends Controller
         ]);
     }
 
-    /**
-     * Remove the specified city.
-     */
     public function destroy(int $id): JsonResponse
     {
         if (!isset(self::$cities[$id])) {

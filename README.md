@@ -25,12 +25,11 @@ The repository is already initialized with Git. To publish it to GitHub:
 
 2. Add the remote and push:
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git remote add origin https://github.com/Bereketmuniye/city-api
 git branch -M main
 git push -u origin main
 ```
 
-Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your actual GitHub username and repository name.
 
 ## Installation
 
@@ -86,10 +85,10 @@ Returns a list of all cities.
   "data": [
     {
       "id": 1,
-      "name": "New York",
-      "country": "USA",
+      "name": "Addis Ababa",
+      "country": "Ethiopia",
       "population": 8336817,
-      "description": "The most populous city in the United States"
+      "description": "The capital city of Ethiopia"
     },
     ...
   ]
@@ -107,10 +106,10 @@ Returns a specific city by ID.
   "success": true,
   "data": {
     "id": 1,
-    "name": "New York",
-    "country": "USA",
+    "name": "Addis Ababa",
+    "country": "Ethiopia",
     "population": 8336817,
-    "description": "The most populous city in the United States"
+    "description": "The capital city of Ethiopia"
   }
 }
 ```
@@ -131,10 +130,10 @@ Creates a new city.
 **Request Body:**
 ```json
 {
-  "name": "Paris",
-  "country": "France",
+  "name": "Bahirdar",
+  "country": "Ethiopia",
   "population": 2161000,
-  "description": "Capital city of France"
+  "description": "The second largest city of Ethiopia"
 }
 ```
 
@@ -153,10 +152,10 @@ Creates a new city.
   "message": "City created successfully",
   "data": {
     "id": 4,
-    "name": "Paris",
-    "country": "France",
+    "name": "Bahirdar",
+    "country": "Ethiopia",
     "population": 2161000,
-    "description": "Capital city of France"
+    "description": "The second largest city of Ethiopia"
   }
 }
 ```
@@ -180,7 +179,7 @@ Updates an existing city. All fields are optional (partial update supported).
 **Request Body:**
 ```json
 {
-  "name": "New York City",
+  "name": "Bahirdar",
   "population": 8500000
 }
 ```
@@ -192,10 +191,10 @@ Updates an existing city. All fields are optional (partial update supported).
   "message": "City updated successfully",
   "data": {
     "id": 1,
-    "name": "New York City",
-    "country": "USA",
+    "name": "Bahirdar",
+    "country": "Ethiopia",
     "population": 8500000,
-    "description": "The most populous city in the United States"
+    "description": "The second largest city of Ethiopia"
   }
 }
 ```
@@ -243,10 +242,10 @@ curl http://localhost:8000/api/cities
 curl -X POST http://localhost:8000/api/cities \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Berlin",
-    "country": "Germany",
+    "name": "Addis Ababa",
+    "country": "Ethiopia",
     "population": 3677472,
-    "description": "Capital city of Germany"
+    "description": "Capital city of Ethiopia"
   }'
 ```
 
@@ -279,9 +278,9 @@ This API uses **in-memory storage**, which means:
 - No database configuration or migrations are required
 
 The API comes pre-populated with 3 sample cities:
-1. New York, USA
-2. London, United Kingdom
-3. Tokyo, Japan
+1. Addis Ababa, Ethiopia
+2. Bahirdar, Ethiopia
+3. Hawassa, Ethiopia
 
 ## Project Structure
 
